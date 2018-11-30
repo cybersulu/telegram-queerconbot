@@ -14,9 +14,15 @@ def webhook(request):
         update = telegram.Update.de_json(request.get_json(force=True), bot)
         chat_id = update.effective_message.chat.id
         messagetext = update.effective_message.text
-        if "backpack" in messagetext.lower():
-            bot.sendMessage(chat_id=chat_id, text="https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/tenor.gif?itemid=8722064")
-        if "chika" in messagetext.lower() or "chikalicious" in messagetext.lower():
-            replytext = random.choice(diabetus)
-            bot.sendMessage(chat_id=chat_id, text=replytext)
+        try:
+            if "backpack" in messagetext.lower():
+                bot.sendMessage(chat_id=chat_id, text="https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/tenor.gif?itemid=8722064")
+        except AttributeError:
+            pass
+        try:
+            if "chika" in messagetext.lower() or "chikalicious" in messagetext.lower():
+                replytext = random.choice(diabetus)
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
     return "ok"
