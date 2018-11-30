@@ -18,7 +18,6 @@ def webhook(request):
         if "backpack" in messagetext.lower():
             bot.sendMessage(chat_id=chat_id, text="https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/tenor.gif?itemid=8722064")
         if "chika" in messagetext.lower() or "chikalicious" in messagetext.lower():
-            random.shuffle(diabetus)
-            replytext = diabetus[:1]
+            replytext = random.choice(diabetus)
             bot.sendMessage(chat_id=chat_id, text=replytext)
     return "ok"
