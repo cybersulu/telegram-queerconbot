@@ -11,8 +11,8 @@ diabetus = ["https://media1.tenor.com/images/38b0f21d0e76dec2ff58d19e37fcc716/te
 def webhook(request):
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True), bot)
-        chat_id = update.message.chat.id
-        messagetext = update.message.text
+        chat_id = update.effective_message.chat.id
+        messagetext = update.effective_message.text
         # Reply with the same message
         # bot.sendMessage(chat_id=chat_id, text=update.message.text)
         if "backpack" in messagetext.lower():
