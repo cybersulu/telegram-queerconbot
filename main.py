@@ -4,13 +4,20 @@ import random
 
 bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 
+# list of backpack images and random text
+backpack = ["https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/tenor.gif?itemid=8722064",
+    "Mmm... yeah... the pack for the back.",
+    "I like turtles.",
+    "I like pie.",
+    "Das ist ein rucksack auf Deutsch!"]
+
 # list of diabetus images
 diabetus = ["https://media1.tenor.com/images/38b0f21d0e76dec2ff58d19e37fcc716/tenor.gif?itemid=4484736",
     "https://1funny.com/wp-content/uploads/2009/07/diabeetus-cat.jpg",
     "http://rs367.pbsrc.com/albums/oo112/Aim_fire/sdgfasfdgd.jpg~c200",
     "https://c1.staticflickr.com/3/2254/2334517660_c5a9522dbd.jpg"]
 
-#list of catfacts
+# list of catfacts
 catfacts = ["1. Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.",
     "2. When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.",
     "3. The technical term for a cat’s hairball is a “bezoar”.",
@@ -29,7 +36,8 @@ def webhook(request):
         messagetext = update.effective_message.text
         try:
             if "backpack" in messagetext.lower():
-                bot.sendMessage(chat_id=chat_id, text="https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/tenor.gif?itemid=8722064")
+                replytext = random.choice(backpack)
+                bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
         try:
