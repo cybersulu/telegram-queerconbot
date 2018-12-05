@@ -9,7 +9,8 @@ backpack = ["https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/te
     "Mmm... yeah... the pack for the back.",
     "I like turtles.",
     "I like pie.",
-    "Das ist ein rucksack auf Deutsch!"]
+    "Das ist ein rucksack auf Deutsch!",
+    "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck."]
 
 # list of diabetus images
 diabetus = ["https://media1.tenor.com/images/38b0f21d0e76dec2ff58d19e37fcc716/tenor.gif?itemid=4484736",
