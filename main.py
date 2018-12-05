@@ -42,6 +42,6 @@ def webhook(request):
             if "catfact" in messagetext.lower():
                 replytext = random.choice(catfacts)
                 bot.sendMessage(chat_id=chat_id, text=replytext)
-            except AttributeError:
-                pass
+        except AttributeError:
+            pass
     return "ok"
