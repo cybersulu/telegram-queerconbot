@@ -109,4 +109,12 @@ def webhook(request):
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
+        try:
+            # "precisely" is a bit too commonly used to match
+            # "precision" should be matched though
+            if re.search('precise(?!ly)',messagetext.lower()):
+                replytext = "https://i.kym-cdn.com/photos/images/original/000/826/353/c93.jpg"
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
     return "ok"
