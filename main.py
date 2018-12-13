@@ -1,6 +1,7 @@
 import os
 import telegram
 import random
+import re
 
 bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 
@@ -97,6 +98,14 @@ def webhook(request):
         try:
             if "nooo" in messagetext.lower():
                 replytext = "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg"
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
+        try:
+            # sand, sandpaper, sandy bridge, etc should be matched.
+            # "sandwich" is very commonly said this channel, so it would be annoying to match
+            if re.search('sand(?!wich)',messagetext.lower()):
+                replytext = "https://i1.wp.com/badbooksgoodtimes.com/wp-content/uploads/2016/04/star-wars-i-dont-like-sand.jpg"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
