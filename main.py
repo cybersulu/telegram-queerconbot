@@ -123,4 +123,16 @@ def webhook(request):
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
+        try:
+            if "puppyparty" in messagetext.lower():
+                replytext = "🐕🐩🐕🙌🐩🐕🐩"
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
+        try:
+            if "ponyparty" in messagetext.lower():
+                replytext = "🐎🦄🎠🙌🐎🦄🎠"
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
     return "ok"
