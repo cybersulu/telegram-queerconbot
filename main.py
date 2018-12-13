@@ -83,7 +83,7 @@ def webhook(request):
         except AttributeError:
             pass
         try:
-            if "chika" in messagetext.lower() or "chikalicious" in messagetext.lower():
+            if "chika" in messagetext.lower():
                 replytext = random.choice(diabetus)
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
