@@ -74,7 +74,7 @@ catfacts = ["(1) Unlike dogs, cats do not have a sweet tooth. Scientists believe
 
 # list of dumpster fires
 dumpsterfire = ["https://media.giphy.com/media/QLyhWVTvAHbAbAdWcp/giphy.gif",
-    "https://media.giphy.com/media/853jNve3ljqrYrcSOK/giphy.gif",
+    "https://media.giphy.com/media/134vVkHV9wQtaw/giphy.gif",
     "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif"]
 
 def webhook(request):
