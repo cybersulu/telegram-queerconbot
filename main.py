@@ -72,6 +72,11 @@ catfacts = ["(1) Unlike dogs, cats do not have a sweet tooth. Scientists believe
     "(49) The little tufts of hair in a cat’s ear that help keep out dirt direct sounds into the ear, and insulate the ears are called “ear furnishings.”",
     "(50) The ability of a cat to find its way home is called “psi-traveling.” Experts think cats either use the angle of the sunlight to find their way or that cats have magnetized cells in their brains that act as compasses."]
 
+# list of dumpster fires
+dumpsterfire = ["https://media.giphy.com/media/853jNve3ljqrYrcSOK/giphy.gif",
+    "https://media.giphy.com/media/l0IynvPneUpb7SnBe/giphy-downsized.gif",
+    "https://media.giphy.com/media/FqtWrearu5vb2/giphy-downsized.gif"]
+
 def webhook(request):
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True), bot)
@@ -150,6 +155,12 @@ def webhook(request):
         try:
             if "flowerbeam" in messagetext.lower():
                 replytext = "(  ・◡・)つ━☆🌸🌺🌼"
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
+        try:
+            if "dumpsterfire" in messagetext.lower():
+                replytext = random.choice(dumpsterfire)
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
