@@ -141,4 +141,16 @@ def webhook(request):
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
+        try:
+            if "tableflip" in messagetext.lower():
+                replytext = "(╯°□°)╯︵ ┻━┻"
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
+        try:
+            if "flowerbeam" in messagetext.lower():
+                replytext = "(  ・◡・)つ━☆🌸🌺🌼"
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
     return "ok"
