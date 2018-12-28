@@ -35,13 +35,13 @@ triggerlist = {
         "https://media.giphy.com/media/QLyhWVTvAHbAbAdWcp/giphy.gif"
         "https://media.giphy.com/media/134vVkHV9wQtaw/giphy.gif",
         "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif",
-    ]
+    ],
     "chika": [
         "https://media1.tenor.com/images/38b0f21d0e76dec2ff58d19e37fcc716/tenor.gif?itemid=4484736",
         "https://1funny.com/wp-content/uploads/2009/07/diabeetus-cat.jpg",
         "http://rs367.pbsrc.com/albums/oo112/Aim_fire/sdgfasfdgd.jpg~c200",
         "https://c1.staticflickr.com/3/2254/2334517660_c5a9522dbd.jpg",
-    ]
+    ],
     # source https://www.factretriever.com/cat-facts
     "catfact": [
         "(1) Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.",
@@ -94,7 +94,7 @@ triggerlist = {
         "(48) In the original Italian version of Cinderella, the benevolent fairy godmother figure was a cat.",
         "(49) The little tufts of hair in a cat’s ear that help keep out dirt direct sounds into the ear, and insulate the ears are called “ear furnishings.”",
         "(50) The ability of a cat to find its way home is called “psi-traveling.” Experts think cats either use the angle of the sunlight to find their way or that cats have magnetized cells in their brains that act as compasses.",
-    ]
+    ],
 }
 
 def webhook(request):
