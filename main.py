@@ -83,6 +83,15 @@ dumpsterfire = [
     "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif",
 ]
 
+# dictionary of kaomoji
+kaomoji = {
+    "tableflip": "(╯°□°)╯︵ ┻━┻",
+    "kittyparty": "🐈🐱🐆🙌🦁🐅🐯",
+    "puppyparty": "🐕🐩🐕🙌🐩🐕🐩",
+    "ponyparty": "🐎🦄🎠🙌🐎🦄🎠",
+    "flowerbeam": "(  ・◡・)つ━☆🌸🌺🌼",
+    "pastryparty": "🍞🥖🥐🥯🥨🥞🍩🍪🍰🧁",
+}
 
 def webhook(request):
     if request.method == "POST":
@@ -129,42 +138,49 @@ def webhook(request):
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
-        try:
-            if "kittyparty" in messagetext.lower():
-                replytext = "🐈🐱🐆🙌🦁🐅🐯"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "puppyparty" in messagetext.lower():
-                replytext = "🐕🐩🐕🙌🐩🐕🐩"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "ponyparty" in messagetext.lower():
-                replytext = "🐎🦄🎠🙌🐎🦄🎠"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "pastryparty" in messagetext.lower():
-                replytext = "🍞🥖🥐🥯🥨🥞🍩🍪🍰🧁"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "tableflip" in messagetext.lower():
-                replytext = "(╯°□°)╯︵ ┻━┻"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "flowerbeam" in messagetext.lower():
-                replytext = "(  ・◡・)つ━☆🌸🌺🌼"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
+        for key in kaomoji:
+            try:
+                if key in messagetext.lower():
+                    replytext = kaomoji.values():
+                    bot.sendMessage(chat_id=chat_id, text=replytext)
+            except AttributeError:
+                pass
+        # try:
+        #     if "kittyparty" in messagetext.lower():
+        #         replytext = "🐈🐱🐆🙌🦁🐅🐯"
+        #         bot.sendMessage(chat_id=chat_id, text=replytext)
+        # except AttributeError:
+        #     pass
+        # try:
+        #     if "puppyparty" in messagetext.lower():
+        #         replytext = "🐕🐩🐕🙌🐩🐕🐩"
+        #         bot.sendMessage(chat_id=chat_id, text=replytext)
+        # except AttributeError:
+        #     pass
+        # try:
+        #     if "ponyparty" in messagetext.lower():
+        #         replytext = "🐎🦄🎠🙌🐎🦄🎠"
+        #         bot.sendMessage(chat_id=chat_id, text=replytext)
+        # except AttributeError:
+        #     pass
+        # try:
+        #     if "pastryparty" in messagetext.lower():
+        #         replytext = "🍞🥖🥐🥯🥨🥞🍩🍪🍰🧁"
+        #         bot.sendMessage(chat_id=chat_id, text=replytext)
+        # except AttributeError:
+        #     pass
+        # try:
+        #     if "tableflip" in messagetext.lower():
+        #         replytext = "(╯°□°)╯︵ ┻━┻"
+        #         bot.sendMessage(chat_id=chat_id, text=replytext)
+        # except AttributeError:
+        #     pass
+        # try:
+        #     if "flowerbeam" in messagetext.lower():
+        #         replytext = "(  ・◡・)つ━☆🌸🌺🌼"
+        #         bot.sendMessage(chat_id=chat_id, text=replytext)
+        # except AttributeError:
+        #     pass
         try:
             if "dumpsterfire" in messagetext.lower():
                 replytext = random.choice(dumpsterfire)
