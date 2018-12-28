@@ -105,7 +105,7 @@ def webhook(request):
         # direct 1:1 mapped responses
         for trigger in singlereplydict:
             try:
-                if key in messagetext.lower():
+                if trigger in messagetext.lower():
                     replytext = singlereplydict[trigger]
                     bot.sendMessage(chat_id=chat_id, text=replytext)
             except AttributeError:
