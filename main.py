@@ -8,7 +8,9 @@ bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 # list of backpack images and random text
 backpack = [
     "https://media.giphy.com/media/xUA7aXRRUlmqhoG7q8/giphy.gif",
-    "Mmm... yeah... the pack for the back.", "I like turtles.", "I like pie.",
+    "Mmm... yeah... the pack for the back.",
+    "I like turtles.",
+    "I like pie.",
     "Das ist ein rucksack auf Deutsch!",
     "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck.",
 ]
@@ -92,6 +94,7 @@ kaomoji = {
     "flowerbeam": "(  ・◡・)つ━☆🌸🌺🌼",
     "pastryparty": "🍞🥖🥐🥯🥨🥞🍩🍪🍰🧁",
 }
+
 
 def webhook(request):
     if request.method == "POST":
