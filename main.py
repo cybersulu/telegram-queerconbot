@@ -7,7 +7,7 @@ bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 
 # list of backpack images and random text
 backpack = [
-    "https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/tenor.gif?itemid=8722064",
+    "https://media.giphy.com/media/xUA7aXRRUlmqhoG7q8/giphy.gif",
     "Mmm... yeah... the pack for the back.", "I like turtles.", "I like pie.",
     "Das ist ein rucksack auf Deutsch!",
     "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck.",
