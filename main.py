@@ -6,22 +6,25 @@ import re
 bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 
 # list of backpack images and random text
-backpack = ["https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/tenor.gif?itemid=8722064",
-    "Mmm... yeah... the pack for the back.",
-    "I like turtles.",
-    "I like pie.",
+backpack = [
+    "https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/tenor.gif?itemid=8722064",
+    "Mmm... yeah... the pack for the back.", "I like turtles.", "I like pie.",
     "Das ist ein rucksack auf Deutsch!",
-    "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck."]
+    "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck."
+]
 
 # list of diabetus images
-diabetus = ["https://media1.tenor.com/images/38b0f21d0e76dec2ff58d19e37fcc716/tenor.gif?itemid=4484736",
+diabetus = [
+    "https://media1.tenor.com/images/38b0f21d0e76dec2ff58d19e37fcc716/tenor.gif?itemid=4484736",
     "https://1funny.com/wp-content/uploads/2009/07/diabeetus-cat.jpg",
     "http://rs367.pbsrc.com/albums/oo112/Aim_fire/sdgfasfdgd.jpg~c200",
-    "https://c1.staticflickr.com/3/2254/2334517660_c5a9522dbd.jpg"]
+    "https://c1.staticflickr.com/3/2254/2334517660_c5a9522dbd.jpg"
+]
 
 # list of catfacts
 # source https://www.factretriever.com/cat-facts
-catfacts = ["(1) Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.",
+catfacts = [
+    "(1) Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.",
     "(2) When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.",
     "(3) The technical term for a cat’s hairball is a “bezoar”.",
     "(4) A group of cats is called a “clowder”.",
@@ -70,12 +73,16 @@ catfacts = ["(1) Unlike dogs, cats do not have a sweet tooth. Scientists believe
     "(47) On average, cats spend 2/3 of every day sleeping. That means a nine-year-old cat has been awake for only three years of its life.",
     "(48) In the original Italian version of Cinderella, the benevolent fairy godmother figure was a cat.",
     "(49) The little tufts of hair in a cat’s ear that help keep out dirt direct sounds into the ear, and insulate the ears are called “ear furnishings.”",
-    "(50) The ability of a cat to find its way home is called “psi-traveling.” Experts think cats either use the angle of the sunlight to find their way or that cats have magnetized cells in their brains that act as compasses."]
+    "(50) The ability of a cat to find its way home is called “psi-traveling.” Experts think cats either use the angle of the sunlight to find their way or that cats have magnetized cells in their brains that act as compasses."
+]
 
 # list of dumpster fires
-dumpsterfire = ["https://media.giphy.com/media/QLyhWVTvAHbAbAdWcp/giphy.gif",
+dumpsterfire = [
+    "https://media.giphy.com/media/QLyhWVTvAHbAbAdWcp/giphy.gif",
     "https://media.giphy.com/media/134vVkHV9wQtaw/giphy.gif",
-    "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif"]
+    "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif"
+]
+
 
 def webhook(request):
     if request.method == "POST":
@@ -109,7 +116,7 @@ def webhook(request):
         try:
             # sand, sandpaper, sandy bridge, etc should be matched.
             # "sandwich" is very commonly said this channel, so it would be annoying to match
-            if re.search('sand(?!wich)',messagetext.lower()):
+            if re.search('sand(?!wich)', messagetext.lower()):
                 replytext = "https://i1.wp.com/badbooksgoodtimes.com/wp-content/uploads/2016/04/star-wars-i-dont-like-sand.jpg"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
@@ -117,49 +124,49 @@ def webhook(request):
         try:
             # "precisely" is a bit too commonly used to match
             # "precision" should be matched though
-            if re.search('precise(?!ly)',messagetext.lower()):
+            if re.search('precise(?!ly)', messagetext.lower()):
                 replytext = "https://i.kym-cdn.com/photos/images/original/000/826/353/c93.jpg"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
         try:
-            if "kittyparty" in messagetext.lower():
+            if re.search(r"kitty\s*party", messagetext.lower()):
                 replytext = "🐈🐱🐆🙌🦁🐅🐯"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
         try:
-            if "puppyparty" in messagetext.lower():
+            if re.search(r"puppy\s*party", messagetext.lower()):
                 replytext = "🐕🐩🐕🙌🐩🐕🐩"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
         try:
-            if "ponyparty" in messagetext.lower():
+            if re.search(r"pony\s*party", messagetext.lower()):
                 replytext = "🐎🦄🎠🙌🐎🦄🎠"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
         try:
-            if "pastryparty" in messagetext.lower():
+            if re.search(r"pastry\s*party", messagetext.lower()):
                 replytext = "🍞🥖🥐🥯🥨🥞🍩🍪🍰🧁"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
         try:
-            if "tableflip" in messagetext.lower():
+            if re.search(r"table\s*flip", messagetext.lower()):
                 replytext = "(╯°□°)╯︵ ┻━┻"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
         try:
-            if "flowerbeam" in messagetext.lower():
+            if re.search(r"flower\s*beam", messagetext.lower()):
                 replytext = "(  ・◡・)つ━☆🌸🌺🌼"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
         try:
-            if "dumpsterfire" in messagetext.lower():
+            if re.search(r"dumpster\s*fire", messagetext.lower()):
                 replytext = random.choice(dumpsterfire)
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
