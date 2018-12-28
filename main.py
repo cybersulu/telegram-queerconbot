@@ -158,8 +158,10 @@ def webhook(request):
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
-        try:
-            if "dumpsterfire" in messagetext.lower():
+        try:            
+            import re
+            regex = r"dumpster\s*fire"
+            if re.match(regex, messagetext.lower(),flags=re.IGNORECASE):
                 replytext = random.choice(dumpsterfire)
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
