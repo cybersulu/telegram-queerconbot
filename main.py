@@ -97,6 +97,9 @@ kaomoji = {
     "musicdance": "♪┏(°.°)┛┗(°.°)┓┗(°.°)┛┏(°.°)┓ ♪",
     "shame": "🔔 🔔 🔔",
     "shrug": "🤷 ¯\_(ツ)_/¯",
+    "disapprove": "ಠ_ಠ",
+    "octodisco": "🎶🐙🎶",
+    "octodance": "🎶🐙🎶",
     "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
 }
 
