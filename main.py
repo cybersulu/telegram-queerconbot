@@ -103,7 +103,6 @@ kaomoji = {
     "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
 }
 
-
 def webhook(request):
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True), bot)
