@@ -97,6 +97,7 @@ kaomoji = {
     "musicdance": "♪┏(°.°)┛┗(°.°)┓┗(°.°)┛┏(°.°)┓ ♪",
     "shame": "🔔 🔔 🔔",
     "shrug": "🤷 ¯\_(ツ)_/¯",
+    "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
 }
 
 
@@ -120,12 +121,6 @@ def webhook(request):
         try:
             if "catfact" in messagetext.lower():
                 replytext = random.choice(catfacts)
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "nooo" in messagetext.lower():
-                replytext = "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg"
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
