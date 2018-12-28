@@ -23,16 +23,6 @@ kaomoji = {
     "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
 }
 
-# list of backpack images and random text
-backpack = [
-    "https://media.giphy.com/media/xUA7aXRRUlmqhoG7q8/giphy.gif",
-    "Mmm... yeah... the pack for the back.",
-    "I like turtles.",
-    "I like pie.",
-    "Das ist ein rucksack auf Deutsch!",
-    "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck.",
-]
-
 # list of diabetus images
 chika = [
     "https://media1.tenor.com/images/38b0f21d0e76dec2ff58d19e37fcc716/tenor.gif?itemid=4484736",
@@ -97,16 +87,30 @@ catfact = [
 ]
 
 # list of dumpster fires
-dumpsterfire = [
-    "https://media.giphy.com/media/QLyhWVTvAHbAbAdWcp/giphy.gif",
-    "https://media.giphy.com/media/134vVkHV9wQtaw/giphy.gif",
-    "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif",
-]
+# dumpsterfire = [
+#     "https://media.giphy.com/media/QLyhWVTvAHbAbAdWcp/giphy.gif",
+#     "https://media.giphy.com/media/134vVkHV9wQtaw/giphy.gif",
+#     "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif",
+# ]
 
 # dictionary of triggers
+# triggerlist = {
+#     "testhello": ["hello 1", "hello 2", "hello 3"],
+#     "testhi": ["hi 1", "hi 2", "hi 3"],
+# }
+
 triggerlist = {
-    "testhello": ["hello 1", "hello 2", "hello 3"],
-    "testhi": ["hi 1", "hi 2", "hi 3"],
+    "backpack": [
+        "https://media.giphy.com/media/xUA7aXRRUlmqhoG7q8/giphy.gif",
+        "Mmm... yeah... the pack for the back.", "I like turtles.", "I like pie.",
+        "Das ist ein rucksack auf Deutsch!",
+        "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck.",
+    ],
+    "dumpsterfire": [
+        "https://media.giphy.com/media/QLyhWVTvAHbAbAdWcp/giphy.gif"
+        "https://media.giphy.com/media/134vVkHV9wQtaw/giphy.gif",
+        "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif",
+    ]
 }
 
 def webhook(request):
@@ -128,12 +132,12 @@ def webhook(request):
                     bot.sendMessage(chat_id=chat_id, text=replytext)
             except AttributeError:
                 pass
-        try:
-            if "backpack" in messagetext.lower():
-                replytext = random.choice(backpack)
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
+        # try:
+        #     if "backpack" in messagetext.lower():
+        #         replytext = random.choice(backpack)
+        #         bot.sendMessage(chat_id=chat_id, text=replytext)
+        # except AttributeError:
+        #     pass
         try:
             if "chika" in messagetext.lower():
                 replytext = random.choice(chika)
@@ -146,12 +150,12 @@ def webhook(request):
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
-        try:
-            if "dumpsterfire" in messagetext.lower():
-                replytext = random.choice(dumpsterfire)
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
+        # try:
+        #     if "dumpsterfire" in messagetext.lower():
+        #         replytext = random.choice(dumpsterfire)
+        #         bot.sendMessage(chat_id=chat_id, text=replytext)
+        # except AttributeError:
+        #     pass
         try:
             # sand, sandpaper, sandy bridge, etc should be matched.
             # "sandwich" is very commonly said this channel, so it would be annoying to match
