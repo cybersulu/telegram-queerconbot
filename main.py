@@ -5,8 +5,8 @@ import re
 
 bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 
-# dictionary of kaomoji
-kaomoji = {
+# dictionary of trigger words with single 1:1 reply
+singlereplydict = {
     "tableflip": "(╯°□°)╯︵ ┻━┻",
     "kittyparty": "🐈🐱🐆🙌🦁🐅🐯",
     "puppyparty": "🐕🐩🐕🙌🐩🐕🐩",
@@ -23,8 +23,8 @@ kaomoji = {
     "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
 }
 
-# dictionary of trigger words with corresponding random responses
-triggerlist = {
+# dictionary of trigger words with multiple random responses
+multireplydict = {
     "backpack": [
         "https://media.giphy.com/media/xUA7aXRRUlmqhoG7q8/giphy.gif",
         "Mmm... yeah... the pack for the back.", "I like turtles.", "I like pie.",
@@ -102,34 +102,20 @@ def webhook(request):
         update = telegram.Update.de_json(request.get_json(force=True), bot)
         chat_id = update.effective_message.chat.id
         messagetext = update.effective_message.text
-        for key in kaomoji:
+        # direct 1:1 mapped responses
+        for trigger in singlereplydict:
             try:
                 if key in messagetext.lower():
-                    replytext = kaomoji[key]
+                    replytext = singlereplydict[trigger]
                     bot.sendMessage(chat_id=chat_id, text=replytext)
             except AttributeError:
                 pass
-        for trigger in triggerlist:
+        # these responses have several options to be selected at random
+        for trigger in multireplydict:
             try:
                 if trigger in messagetext.lower():
-                    replytext = random.choice(triggerlist[trigger])
+                    replytext = random.choice(multireplydict[trigger])
                     bot.sendMessage(chat_id=chat_id, text=replytext)
             except AttributeError:
                 pass
-        try:
-            # sand, sandpaper, sandy bridge, etc should be matched.
-            # "sandwich" is very commonly said this channel, so it would be annoying to match
-            if re.search('sand(?!wich)', messagetext.lower()):
-                replytext = "https://i1.wp.com/badbooksgoodtimes.com/wp-content/uploads/2016/04/star-wars-i-dont-like-sand.jpg"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            # "precisely" is a bit too commonly used to match
-            # "precision" should be matched though
-            if re.search('precise(?!ly)', messagetext.lower()):
-                replytext = "https://i.kym-cdn.com/photos/images/original/000/826/353/c93.jpg"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
     return "ok"
