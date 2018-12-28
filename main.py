@@ -119,7 +119,7 @@ def webhook(request):
         for trigger in triggerlist:
             try:
                 if trigger in messagetext.lower():
-                    replytext = random.choice(r'trigger')
+                    replytext = random.choice(trigger)
                     bot.sendMessage(chat_id=chat_id, text=replytext)
             except AttributeError:
                 pass
