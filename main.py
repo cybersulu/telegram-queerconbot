@@ -119,7 +119,7 @@ def webhook(request):
         for trigger in triggerlist:
             try:
                 if trigger in messagetext.lower():
-                    replytext = random.choice(trigger.strip())
+                    replytext = random.choice(trigger.decode("unicode_escape"))
                     bot.sendMessage(chat_id=chat_id, text=replytext)
             except AttributeError:
                 pass
