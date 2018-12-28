@@ -105,7 +105,7 @@ dumpsterfire = [
 
 # dictionary of triggers
 triggerlist = {
-    "testhello": ["hello 1". "hello 2", "hello 3"],
+    "testhello": ["hello 1", "hello 2", "hello 3"],
     "testhi": ["hi 1", "hi 2", "hi 3"],
 }
 
