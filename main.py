@@ -5,6 +5,14 @@ import re
 
 bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 
+# list of triggers with random options
+triggerlist = [
+    "backpack",
+    "chika",
+    "catfact",
+    "dumpsterfire",
+]
+
 # list of backpack images and random text
 backpack = [
     "https://media.giphy.com/media/xUA7aXRRUlmqhoG7q8/giphy.gif",
@@ -16,7 +24,7 @@ backpack = [
 ]
 
 # list of diabetus images
-diabetus = [
+chika = [
     "https://media1.tenor.com/images/38b0f21d0e76dec2ff58d19e37fcc716/tenor.gif?itemid=4484736",
     "https://1funny.com/wp-content/uploads/2009/07/diabeetus-cat.jpg",
     "http://rs367.pbsrc.com/albums/oo112/Aim_fire/sdgfasfdgd.jpg~c200",
@@ -25,7 +33,7 @@ diabetus = [
 
 # list of catfacts
 # source https://www.factretriever.com/cat-facts
-catfacts = [
+catfact = [
     "(1) Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.",
     "(2) When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.",
     "(3) The technical term for a cat’s hairball is a “bezoar”.",
@@ -108,24 +116,20 @@ def webhook(request):
         update = telegram.Update.de_json(request.get_json(force=True), bot)
         chat_id = update.effective_message.chat.id
         messagetext = update.effective_message.text
-        try:
-            if "backpack" in messagetext.lower():
-                replytext = random.choice(backpack)
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "chika" in messagetext.lower():
-                replytext = random.choice(diabetus)
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "catfact" in messagetext.lower():
-                replytext = random.choice(catfacts)
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
+        for trigger in triggerlist:
+            try:
+                if trigger in messagetext.lower():
+                    replytext = random.choice(trigger)
+                    bot.sendMessage(chat_id=chat_id, text=replytext)
+            except AttributeError:
+                pass
+        for key in kaomoji:
+            try:
+                if key in messagetext.lower():
+                    replytext = kaomoji[key]
+                    bot.sendMessage(chat_id=chat_id, text=replytext)
+            except AttributeError:
+                pass
         try:
             # sand, sandpaper, sandy bridge, etc should be matched.
             # "sandwich" is very commonly said this channel, so it would be annoying to match
@@ -142,17 +146,4 @@ def webhook(request):
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
-        try:
-            if "dumpsterfire" in messagetext.lower():
-                replytext = random.choice(dumpsterfire)
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        for key in kaomoji:
-            try:
-                if key in messagetext.lower():
-                    replytext = kaomoji[key]
-                    bot.sendMessage(chat_id=chat_id, text=replytext)
-            except AttributeError:
-                pass
     return "ok"
