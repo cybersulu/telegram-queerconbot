@@ -23,14 +23,6 @@ kaomoji = {
     "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
 }
 
-# list of triggers with random options
-triggerlist = [
-    "backpack",
-    "chika",
-    "catfact",
-    "dumpsterfire",
-]
-
 # list of backpack images and random text
 backpack = [
     "https://media.giphy.com/media/xUA7aXRRUlmqhoG7q8/giphy.gif",
@@ -131,7 +123,7 @@ def webhook(request):
             pass
         try:
             if "chika" in messagetext.lower():
-                replytext = random.choice(diabetus)
+                replytext = random.choice(chika)
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
