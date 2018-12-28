@@ -7,10 +7,8 @@ bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 
 # list of backpack images and random text
 backpack = [
-    "https://media1.tenor.com/images/3862340576b167181f07a120e11a400b/tenor.gif?itemid=8722064",
-    "Mmm... yeah... the pack for the back.",
-    "I like turtles.",
-    "I like pie.",
+    "https://media.giphy.com/media/xUA7aXRRUlmqhoG7q8/giphy.gif",
+    "Mmm... yeah... the pack for the back.", "I like turtles.", "I like pie.",
     "Das ist ein rucksack auf Deutsch!",
     "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck.",
 ]
@@ -85,6 +83,15 @@ dumpsterfire = [
     "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif",
 ]
 
+# dictionary of kaomoji
+kaomoji = {
+    "tableflip": "(╯°□°)╯︵ ┻━┻",
+    "kittyparty": "🐈🐱🐆🙌🦁🐅🐯",
+    "puppyparty": "🐕🐩🐕🙌🐩🐕🐩",
+    "ponyparty": "🐎🦄🎠🙌🐎🦄🎠",
+    "flowerbeam": "(  ・◡・)つ━☆🌸🌺🌼",
+    "pastryparty": "🍞🥖🥐🥯🥨🥞🍩🍪🍰🧁",
+}
 
 def webhook(request):
     if request.method == "POST":
@@ -132,45 +139,16 @@ def webhook(request):
         except AttributeError:
             pass
         try:
-            if "kittyparty" in messagetext.lower():
-                replytext = "🐈🐱🐆🙌🦁🐅🐯"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "puppyparty" in messagetext.lower():
-                replytext = "🐕🐩🐕🙌🐩🐕🐩"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "ponyparty" in messagetext.lower():
-                replytext = "🐎🦄🎠🙌🐎🦄🎠"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "pastryparty" in messagetext.lower():
-                replytext = "🍞🥖🥐🥯🥨🥞🍩🍪🍰🧁"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "tableflip" in messagetext.lower():
-                replytext = "(╯°□°)╯︵ ┻━┻"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
-            if "flowerbeam" in messagetext.lower():
-                replytext = "(  ・◡・)つ━☆🌸🌺🌼"
-                bot.sendMessage(chat_id=chat_id, text=replytext)
-        except AttributeError:
-            pass
-        try:
             if "dumpsterfire" in messagetext.lower():
                 replytext = random.choice(dumpsterfire)
                 bot.sendMessage(chat_id=chat_id, text=replytext)
         except AttributeError:
             pass
+        for key in kaomoji:
+            try:
+                if key in messagetext.lower():
+                    replytext = kaomoji[key]
+                    bot.sendMessage(chat_id=chat_id, text=replytext)
+            except AttributeError:
+                pass
     return "ok"
