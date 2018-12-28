@@ -103,6 +103,12 @@ dumpsterfire = [
     "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif",
 ]
 
+# dictionary of triggers
+triggerlist = {
+    "testhello": ["hello 1". "hello 2", "hello 3"],
+    "testhi": ["hi 1", "hi 2", "hi 3"],
+}
+
 def webhook(request):
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True), bot)
@@ -112,6 +118,13 @@ def webhook(request):
             try:
                 if key in messagetext.lower():
                     replytext = kaomoji[key]
+                    bot.sendMessage(chat_id=chat_id, text=replytext)
+            except AttributeError:
+                pass
+        for trigger in triggerlist:
+            try:
+                if trigger in messagetext.lower():
+                    replytext = random.choice(triggerlist[trigger])
                     bot.sendMessage(chat_id=chat_id, text=replytext)
             except AttributeError:
                 pass
