@@ -5,6 +5,24 @@ import re
 
 bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 
+# dictionary of kaomoji
+kaomoji = {
+    "tableflip": "(╯°□°)╯︵ ┻━┻",
+    "kittyparty": "🐈🐱🐆🙌🦁🐅🐯",
+    "puppyparty": "🐕🐩🐕🙌🐩🐕🐩",
+    "ponyparty": "🐎🦄🎠🙌🐎🦄🎠",
+    "flowerbeam": "(  ・◡・)つ━☆🌸🌺🌼",
+    "pastryparty": "🍞🥖🥐🥯🥨🥞🍩🍪🍰🧁",
+    "doubleflip": "┻━┻︵ \\(°□°)/ ︵ ┻━┻",
+    "musicdance": "♪┏(°.°)┛┗(°.°)┓┗(°.°)┛┏(°.°)┓ ♪",
+    "shame": "🔔 🔔 🔔",
+    "shrug": "🤷 ¯\_(ツ)_/¯",
+    "disapprove": "ಠ_ಠ",
+    "octodisco": "🎶🐙🎶",
+    "octodance": "🎶🐙🎶",
+    "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
+}
+
 # list of triggers with random options
 triggerlist = [
     "backpack",
@@ -93,36 +111,11 @@ dumpsterfire = [
     "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif",
 ]
 
-# dictionary of kaomoji
-kaomoji = {
-    "tableflip": "(╯°□°)╯︵ ┻━┻",
-    "kittyparty": "🐈🐱🐆🙌🦁🐅🐯",
-    "puppyparty": "🐕🐩🐕🙌🐩🐕🐩",
-    "ponyparty": "🐎🦄🎠🙌🐎🦄🎠",
-    "flowerbeam": "(  ・◡・)つ━☆🌸🌺🌼",
-    "pastryparty": "🍞🥖🥐🥯🥨🥞🍩🍪🍰🧁",
-    "doubleflip": "┻━┻︵ \\(°□°)/ ︵ ┻━┻",
-    "musicdance": "♪┏(°.°)┛┗(°.°)┓┗(°.°)┛┏(°.°)┓ ♪",
-    "shame": "🔔 🔔 🔔",
-    "shrug": "🤷 ¯\_(ツ)_/¯",
-    "disapprove": "ಠ_ಠ",
-    "octodisco": "🎶🐙🎶",
-    "octodance": "🎶🐙🎶",
-    "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
-}
-
 def webhook(request):
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True), bot)
         chat_id = update.effective_message.chat.id
         messagetext = update.effective_message.text
-        for trigger in triggerlist:
-            try:
-                if trigger in messagetext.lower():
-                    replytext = random.choice(trigger.decode("unicode_escape"))
-                    bot.sendMessage(chat_id=chat_id, text=replytext)
-            except AttributeError:
-                pass
         for key in kaomoji:
             try:
                 if key in messagetext.lower():
@@ -130,6 +123,30 @@ def webhook(request):
                     bot.sendMessage(chat_id=chat_id, text=replytext)
             except AttributeError:
                 pass
+        try:
+            if "backpack" in messagetext.lower():
+                replytext = random.choice(backpack)
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
+        try:
+            if "chika" in messagetext.lower():
+                replytext = random.choice(diabetus)
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
+        try:
+            if "catfact" in messagetext.lower():
+                replytext = random.choice(catfacts)
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
+        try:
+            if "dumpsterfire" in messagetext.lower():
+                replytext = random.choice(dumpsterfire)
+                bot.sendMessage(chat_id=chat_id, text=replytext)
+        except AttributeError:
+            pass
         try:
             # sand, sandpaper, sandy bridge, etc should be matched.
             # "sandwich" is very commonly said this channel, so it would be annoying to match
