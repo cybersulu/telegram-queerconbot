@@ -141,7 +141,7 @@ def webhook(request):
         for key in kaomoji:
             try:
                 if key in messagetext.lower():
-                    replytext = kaomoji[key]:
+                    replytext = kaomoji[key]
                     bot.sendMessage(chat_id=chat_id, text=replytext)
             except AttributeError:
                 pass
