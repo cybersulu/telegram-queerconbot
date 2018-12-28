@@ -1,7 +1,6 @@
 import os
 import telegram
 import random
-import re
 
 bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 
@@ -21,7 +20,6 @@ singlereplydict = {
     "octodisco": "🎶🐙🎶",
     "octodance": "🎶🐙🎶",
     "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
-    "precise\ ": "https://i.kym-cdn.com/photos/images/original/000/826/353/c93.jpg",
     "precision": "https://i.kym-cdn.com/photos/images/original/000/826/353/c93.jpg",
 }
 
