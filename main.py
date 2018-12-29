@@ -28,6 +28,8 @@ singlereplydict = {
 multireplydict = {
     "backpack": [
         "https://media.giphy.com/media/xUA7aXRRUlmqhoG7q8/giphy.gif",
+        "https://media.giphy.com/media/2DjXJ5UmrqYPm/giphy.gif",
+        "https://media.giphy.com/media/E1MTLQN0vFac8/giphy.gif",
         "Mmm... yeah... the pack for the back.", "I like turtles.", "I like pie.",
         "Das ist ein rucksack auf Deutsch!",
         "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck.",
