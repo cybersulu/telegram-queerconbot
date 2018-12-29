@@ -44,6 +44,8 @@ multireplydict = {
         "https://1funny.com/wp-content/uploads/2009/07/diabeetus-cat.jpg",
         "http://rs367.pbsrc.com/albums/oo112/Aim_fire/sdgfasfdgd.jpg~c200",
         "https://c1.staticflickr.com/3/2254/2334517660_c5a9522dbd.jpg",
+        "https://media.giphy.com/media/Xbvni0CPHxdRK/giphy.gif",
+        "https://media.giphy.com/media/2oLrxIsfNcMH6/giphy.gif",
     ],
     # source https://www.factretriever.com/cat-facts
     "catfact": [
