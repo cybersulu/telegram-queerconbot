@@ -1,3 +1,7 @@
+# Queercon Bot
+
+This project was forked off pabluk's sample code. Now with 200% moar Queery
+
 # Serverless Telegram Bot
 
 A basic serverless [Telegram bot](https://core.telegram.org/bots) using [Google Cloud Functions](https://cloud.google.com/functions/).
