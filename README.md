@@ -1,6 +1,6 @@
 # Queercon Bot
 
-This project was forked off pabluk's sample code. Now with 200% moar Queery
+This project was forked off pabluk's sample code. Now with 200% moar Queery for use on [Queercon](https://queercon.org)-related Telegram channels. It mostly serves silly responses for various keywords from the channel.
 
 # Serverless Telegram Bot
 
