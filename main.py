@@ -21,8 +21,6 @@ singlereplydict = {
     "disapprove": "ಠ_ಠ",
     "octodisco": "🎶🐙🎶",
     "octodance": "🎶🐙🎶",
-    "nooo": "https://i.kym-cdn.com/entries/icons/original/000/000/854/vader_NOOOO.jpg",
-    "precision": "https://i.kym-cdn.com/photos/images/original/000/826/353/c93.jpg",
 }
 
 # dictionary of trigger words with multiple random responses
@@ -36,7 +34,7 @@ multireplydict = {
         "Oh, and remember, next Friday is Swedish luggage day, so, you know, if you want to, go ahead and wear a bäckpäck.",
     ],
     "dumpsterfire": [
-        "https://media.giphy.com/media/QLyhWVTvAHbAbAdWcp/giphy.gif"
+        "https://media.giphy.com/media/QLyhWVTvAHbAbAdWcp/giphy.gif",
         "https://media.giphy.com/media/134vVkHV9wQtaw/giphy.gif",
         "https://media.giphy.com/media/FqtWrearu5vb2/giphy.gif",
     ],
