@@ -7,6 +7,7 @@ bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 # dictionary of trigger words with single 1:1 reply
 singlereplydict = {
     "tableflip": "(╯°□°)╯︵ ┻━┻",
+    "bagelflip": "(╯°□°)╯︵ 🥯",
     "kittyparty": "🐈🐱🐆🙌🦁🐅🐯",
     "puppyparty": "🐕🐩🐕🙌🐩🐕🐩",
     "ponyparty": "🐎🦄🎠🙌🐎🦄🎠",
