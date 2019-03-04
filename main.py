@@ -8,6 +8,8 @@ bot = telegram.Bot(token=os.environ["TELEGRAM_TOKEN"])
 singlereplydict = {
     "tableflip": "(╯°□°)╯︵ ┻━┻",
     "bagelflip": "(╯°□°)╯︵ 🥯",
+    "tacoflip": "(╯°□°)╯︵ 🌮",
+    "pizzaflip": "(╯°□°)╯︵ 🍕",
     "kittyparty": "🐈🐱🐆🙌🦁🐅🐯",
     "puppyparty": "🐕🐩🐕🙌🐩🐕🐩",
     "ponyparty": "🐎🦄🎠🙌🐎🦄🎠",
